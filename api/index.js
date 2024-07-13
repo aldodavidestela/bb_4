@@ -1,11 +1,14 @@
 var express = require('express');
 var app     = express();
 var cors    = require('cors');
-var dal     = require('./dal.js');
+var dal     = require('../dal.js');
 
 // used to serve static files from public directory
-app.use(express.static('public'));
+app.use(express.static('../public'));
 app.use(cors());
+
+// setting Vercel requirements to work express 
+//app.get("/", (req, res) => res.send("Express on Vercel"));
 
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
@@ -105,6 +108,7 @@ app.get('/account/all', function (req, res) {
     });
 });
 
-var port = 3000;
-app.listen(port);
-console.log('Running on port: ' + port);
+app.listen(3000, () => console.log('Running on port: 3000'));
+
+
+module.exports = app;
