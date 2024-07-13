@@ -181,9 +181,23 @@ function CreateForm(props){
       value={password} 
       onChange={e => setPassword(e.currentTarget.value)}/><br/>
 
-    <button type="submit" 
+    {disabled ? (
+      <button 
+      type="submit" 
+      disabled="disabled"
       className="btn btn-primary" 
-      onClick={handle}>Create Account</button>
+      onClick={handle}>
+        Create Account
+      </button>
+    ):(
+      <button 
+        type="submit" 
+        className="btn btn-primary" 
+        onClick={handle}>
+          Create Account
+      </button>
+    )
+  }
 
 <p /> 
     
