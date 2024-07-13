@@ -1,9 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
+require('dotenv').config({path: './.env.local'});
 const url         = process.env.MONGODB_URI;
 let db            = null;
  
 // connect to mongo
 MongoClient.connect(url, {useUnifiedTopology: true}, function(err, client) {
+    console.log(process.env);
     console.log("Connected successfully to db server");
 
     // connect to myproject database
