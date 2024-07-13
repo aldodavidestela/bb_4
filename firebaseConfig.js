@@ -1,5 +1,7 @@
+require('dotenv').config({path: './.env'});
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBl6sf4GlM-kKyVENEDgeLrOVqZPmvzvbg",
+    apiKey: process.env.FIREBASE_APIKEY,
     authDomain: "courso-e0d8b.firebaseapp.com",
     databaseURL: "https://courso-e0d8b-default-rtdb.firebaseio.com",
     projectId: "courso-e0d8b",
