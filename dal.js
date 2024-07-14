@@ -57,7 +57,7 @@ async function findOne(email) {
 async function getBalance(email) {
   try {
     const user = await User.findOne({ email });
-    return Number(user.balance);
+    return ({"balance": user.balance});
   } catch (err) {
     throw err;
   }

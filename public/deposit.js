@@ -50,9 +50,9 @@ function DepositForm(props){
   const url = `/account/getbalance/${currentUser.user.email}`;
   (async () => {
       var res   =  await fetch(url);
-      var dbBalance  =  await res.text();
-      console.log("Balance: "+dbBalance);
-      setBalance(dbBalance);
+      var data  =  await res.json();
+      console.log("Balance: "+data.balance);
+      setBalance(data.balance);
   })();
 
   React.useEffect(() => {
