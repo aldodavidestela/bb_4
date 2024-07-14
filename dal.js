@@ -14,7 +14,6 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model('User', userSchema);
 
 // Connect to MongoDB
-//mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connect(url, {})
   .then(() => {
     console.log("Connected successfully to MongoDB");
@@ -58,7 +57,7 @@ async function findOne(email) {
 async function getBalance(email) {
   try {
     const user = await User.findOne({ email });
-    return user;
+    return user.balance;
   } catch (err) {
     throw err;
   }

@@ -7,9 +7,6 @@ var dal     = require('../dal.js');
 app.use(express.static('../public'));
 app.use(cors());
 
-// setting Vercel requirements to work express 
-//app.get("/", (req, res) => res.send("Express on Vercel"));
-
 // create user account
 app.get('/account/create/:name/:email/:password', function (req, res) {
 
@@ -33,7 +30,6 @@ app.get('/account/create/:name/:email/:password', function (req, res) {
 
         });
 });
-
 
 // login user 
 app.get('/account/login/:email/:password', function (req, res) {
@@ -80,9 +76,9 @@ app.get('/account/findOne/:email', function (req, res) {
 // getBalance - initial info for update (withdraw or deposit)
 app.get('/account/getbalance/:email', function(req, res){
     dal.getBalance(req.params.email)
-        .then((user) => {
-            console.log(user);
-            res.send(user);
+        .then((balance) => {
+            console.log(balance);
+            res.send(balance);
         });
 });
 

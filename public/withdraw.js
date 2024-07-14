@@ -49,10 +49,9 @@ function WithdrawForm(props){
    const url = `/account/getbalance/${currentUser.user.email}`;
    (async () => {
        var res   =  await fetch(url);
-       var userData  =  await res.json();
-       console.log(JSON.stringify(userData));
-       console.log("Balance: "+userData.balance);
-       setBalance(userData.balance);
+       var dbBalance  =  Number(await res.text());
+       console.log("Balance: "+dbBalance);
+       setBalance(dBbalance);
    })();
  
    React.useEffect(() => {

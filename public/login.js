@@ -101,8 +101,8 @@ function LoginForm(props){
     var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
       .then((userCredential) => {
-        // Check if the user already has an account in the database by checking balance
-        const url = `/account/getbalance/${userCredential.user.email}`;
+        // Check if the user already has an account in the database
+        const url = `/account/findOne/${userCredential.user.email}`;
         console.log(`url: ${url}`);
         (async () => {
           // Sending the data to server and then awaiting the response
