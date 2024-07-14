@@ -111,8 +111,8 @@ function LoginForm(props){
           console.log(`Database Response: ${userData}`)
           if (userData == '') {
             // Case if user does not exist
-            console.log(`User does not exist, creating account`);
-            var createAccountMessage = `Account successfully created for: ${userCredential.user.email}`;
+            console.log(`User does not exist.`);
+            /*var createAccountMessage = `Account successfully created for: ${userCredential.user.email}`;
             // Setting the account up in the database
             const url = `/account/create/${userCredential.user.displayName}/${userCredential.user.email}/GoogleAuth/`;
             (async () => {
@@ -120,9 +120,11 @@ function LoginForm(props){
                 var res   =  await fetch(url);
                 var data  =  await res.json();
                 console.log(data);
-            })();
+            })();*/
             // Setting the status messages
-            props.setStatus(createAccountMessage);
+            /*props.setStatus(createAccountMessage);*/
+            firebase.auth().signOut()
+            props.setStatus('User does not exist. Please create an account.')
           } else {
             // Case if user does exist
             // Just print success message if user exists
