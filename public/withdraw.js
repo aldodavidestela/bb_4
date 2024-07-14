@@ -49,7 +49,7 @@ function WithdrawForm(props){
    const url = `/account/getbalance/${currentUser.user.email}`;
    (async () => {
        var res   =  await fetch(url);
-       var dbBalance  =  Number(await res.text());
+       var dbBalance  =  await res.text();
        console.log("Balance: "+dbBalance);
        setBalance(dBbalance);
    })();
