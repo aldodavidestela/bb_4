@@ -49,7 +49,7 @@ function BalanceForm(props){
   const url = `/account/getbalance/${currentUser.user.email}`;
   (async () => {
       var res   =  await fetch(url);
-      var dbBalance  =  Number(await res.json());
+      var dbBalance  =  Number(await res.text());
       //console.log(JSON.stringify(userData));
       console.log("Balance: "+dbBalance);
       setBalance(dbBalance);
